@@ -31,7 +31,6 @@
             if(arr[i+j]==-1) {temp=0;}
             else if (arr[i-j]==-1) {tempo=0;}
             arr[i]=floor((temp+tempo)/2);
-            printf("nilai temp dan tempo %d: %d\n", temp,tempo);
         }
         else if(i==0 && arr[i]==-1){
             int j=1;
@@ -40,7 +39,6 @@
                 temp=arr[i+j];
             }if(arr[i+j]==-1) {temp=0;}
             arr[i]=floor((temp+tempo)/2);
-            printf("nilai temp dan tempo %d: %d\n", temp,tempo);
         }    
         else if(i==(ukuran)-1 && arr[i]==-1){
             int j=1;
@@ -49,7 +47,7 @@
                 tempo=arr[i-j];
             }if (arr[i-j]==-1) {tempo=0;}
             arr[i]=floor((temp+tempo)/2);
-        }printf("nilai array %d: %d\n", i,arr[i]);
+        }
         
      } 
 
@@ -83,14 +81,8 @@
     int ukuran;
     int arr[20];
     masukkan(arr, &ukuran, input);
-     for(int i=0; i<ukuran; i++){
-        printf("%d", arr[i]);
-    }
     recover(ukuran, arr);
     printf("RECOVERED ");
-    for(int i=0; i<ukuran; i++){
-        printf("%d", arr[i]);
-    }
     subarraymax(arr, ukuran);
     
 
