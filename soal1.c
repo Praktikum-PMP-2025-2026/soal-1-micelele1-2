@@ -18,40 +18,50 @@
     int temp=0;
     int tempo=0;
     for (int i=0; i<ukuran; i++){
-        if(i!=0 && i!=(ukuran)-1){
+        if(i!=0 && i!=(ukuran)-1 && arr[i]==-1){
             int j=1;
             while(arr[i+j]==-1&&(i+j)!=(ukuran)-1){
                 j++;
-                int temp=arr[i+j];
+                temp=arr[i+j];
             }
             while(arr[i-j]==-1&&(i-j)!=0){
                 j++;
-                int tempo=arr[i-j];
+                tempo=arr[i-j];
             }
-            if(arr[i+j]==-1) {int temp=0;}
-            else if (arr[i-j]==-1) {int tempo=0;}
-        else if(i==0){
+            if(arr[i+j]==-1) {temp=0;}
+            else if (arr[i-j]==-1) {tempo=0;}
+            arr[i]=floor((temp+tempo)/2);
+            printf("nilai temp dan tempo %d: %d\n", temp,tempo);
+        }
+        else if(i==0 && arr[i]==-1){
+            int j=1;
             while(arr[i+j]==-1&&(i+j)!=(ukuran)-1){
                 j++;
-                int temp=arr[i+j];
-            }if(arr[i+j]==-1) {int temp=0;}
+                temp=arr[i+j];
+            }if(arr[i+j]==-1) {temp=0;}
+            arr[i]=floor((temp+tempo)/2);
+            printf("nilai temp dan tempo %d: %d\n", temp,tempo);
         }    
-        else if(i==(ukuran)-1){
+        else if(i==(ukuran)-1 && arr[i]==-1){
+            int j=1;
             while(arr[i-j]==-1&&(i-j)!=0){
                 j++;
-                int tempo=arr[i-j];
-            }if (arr[i-j]==-1) {int tempo=0;}
-        }
-     } arr[i]=floor((temp+tempo)/2);
+                tempo=arr[i-j];
+            }if (arr[i-j]==-1) {tempo=0;}
+            arr[i]=floor((temp+tempo)/2);
+        }printf("nilai array %d: %d\n", i,arr[i]);
+        
+     } 
+
     }
- }
+ 
 
  int subarraymax(int *arr, int ukuran){
     int total=0;
     for(int i=0; i<ukuran; i++){
         total+=arr[i];
     }
-    printf("%d", total);
+    printf(" TOTAL %d", total);
  }
  
  void masukkan(int *temp_array, int *nums, char *input){
@@ -64,7 +74,6 @@
             int temp=atoi(token);
             printf("%d\n", temp);
             temp_array[i]=temp;
-            printf("masuk ga sih %d\n", temp_array[i]);
         }
 
     }
@@ -78,9 +87,6 @@
         printf("%d", arr[i]);
     }
     recover(ukuran, arr);
-     for(int i=0; i<ukuran; i++){
-        printf("%d", arr[i]);
-    }
     printf("RECOVERED ");
     for(int i=0; i<ukuran; i++){
         printf("%d", arr[i]);
