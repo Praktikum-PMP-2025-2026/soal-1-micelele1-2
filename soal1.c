@@ -14,7 +14,7 @@
  #include<string.h>
 
 
- void recover(int ukuran, int arr[]){
+ void recover(int ukuran, int *arr){
     int temp=0;
     int tempo=0;
     for (int i=0; i<ukuran; i++){
@@ -46,20 +46,20 @@
     }
  }
 
- int subarraymax(int arr[], int ukuran){
+ int subarraymax(int *arr, int ukuran){
     int total=0;
     for(int i=0; i<ukuran; i++){
         total+=arr[i];
     }
-    printf("%d", &total);
+    printf("%d", total);
  }
  
- void masukkan(int *temp_array, int nums, char *input){
-    fgets(input, sizeof(input), stdin);
+ void masukkan(int *temp_array, int *nums, char *input){
+    fgets(input, 256, stdin);
     char *token= strtok(input, " ");
     if(token){
-        nums=atoi(token);
-        for(int i=0; i<nums; i++){
+        *nums=atoi(token);
+        for(int i=0; i<*nums; i++){
             token=strtok(NULL, " ");
             int temp=atoi(token);
             printf("%d\n", temp);
@@ -72,8 +72,8 @@
  int main(){
     char input [256];
     int ukuran;
-    int arr[256];
-    masukkan(arr, ukuran, input);
+    int arr[20];
+    masukkan(arr, &ukuran, input);
      for(int i=0; i<ukuran; i++){
         printf("%d", arr[i]);
     }
@@ -81,7 +81,6 @@
      for(int i=0; i<ukuran; i++){
         printf("%d", arr[i]);
     }
-    
     printf("RECOVERED ");
     for(int i=0; i<ukuran; i++){
         printf("%d", arr[i]);
